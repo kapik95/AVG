@@ -17,7 +17,12 @@ namespace AVG.Controllers
         {
             return View();
         }
- 
+
+        public IActionResult InformationSecurity()
+        { 
+            return View(); 
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
