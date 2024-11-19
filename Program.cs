@@ -1,3 +1,6 @@
+using AVG.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace AVG
 {
     public class Program
@@ -8,6 +11,9 @@ namespace AVG
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddDbContext<ProjectsDbContext>(options =>
+                options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             var app = builder.Build();
 
