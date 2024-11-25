@@ -1,21 +1,25 @@
-﻿using AVG.Models;
+﻿using AVG.Data;
+using AVG.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace AVG.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ProjectsDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ProjectsDbContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var projects = await _context.ProjectsModel.ToListAsync();
+            return View(projects);
+            //return View();
         }
 
         public IActionResult InformationSecurity()

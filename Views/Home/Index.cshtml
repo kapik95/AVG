@@ -1,6 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@model IEnumerable<AVG.Models.ProjectModel>
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
@@ -70,3 +71,27 @@
     </div>
     <div class="col-lg-6"><img class="img-fluid" src="assets/img/pet.png" alt="..." /></div>
 </div>
+
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Project Name</th>
+            <th>Description</th>
+            <th>Language</th>
+            <th>Technologies</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var project in Model)
+        {
+            <tr>
+                <td>@project.Title</td>
+                <td>@project.Description</td>
+                <td>@project.Technologies</td>
+            </tr>
+        }
+    </tbody>
+</table>
