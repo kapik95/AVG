@@ -1,4 +1,5 @@
-﻿using AVG.Data;
+﻿using AVG.Contracts;
+using AVG.Data;
 using AVG.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -15,11 +16,22 @@ namespace AVG.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index()
+        /*public async Task<IActionResult> Index()
         {
             var projects = await _context.ProjectsModel.ToListAsync();
             return View(projects);
             //return View();
+        }*/
+
+        public async Task<IActionResult> Index()
+        {
+            var projects = await _context.ProjectsModel
+                .Select (a => new ProjectsResponse(
+                    a.Title,
+                    a.BriefDescription,
+                    a.ImagePath))
+                .ToListAsync(); 
+            return View(projects);
         }
 
         public IActionResult InformationSecurity()
