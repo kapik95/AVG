@@ -3,22 +3,14 @@
 }
 @model IEnumerable<AVG.Contracts.ProjectsResponse>
 
+
 @foreach (var project in Model)
 {
     @if(project.Id % 2 == 0)
     {
         <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
             <div class="col-lg-6">
-                <div class="bg-black text-center h-100 project">
-                    <div class="d-flex h-100">
-                        <div class="project-text w-100 my-auto text-center text-lg-left">
-                            <h4 class="text-white">@project.Title</h4>
-                            <p class="mb-0 text-white-50">@project.BriefDescription</p>
-                            <p></p>
-                            <a class="btn btn-primary" asp-area="" asp-controller="Home" asp-action="InformationSecurity">ПОДРОБНЕЕ</a>
-                        </div>
-                    </div>
-                </div>
+                @await Html.PartialAsync("ProjectCard", project)
             </div>
             <div class="col-lg-6"><img class="img-fluid" src="@project.ImagePath" alt="..." /></div>
         </div>
@@ -28,16 +20,7 @@
         <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
             <div class="col-lg-6"><img class="img-fluid" src="@project.ImagePath" alt="..." /></div>
             <div class="col-lg-6">
-                <div class="bg-black text-center h-100 project">
-                    <div class="d-flex h-100">
-                        <div class="project-text w-100 my-auto text-center text-lg-left">
-                            <h4 class="text-white">@project.Title</h4>
-                            <p class="mb-0 text-white-50">@project.BriefDescription</p>
-                            <p></p>
-                            <a class="btn btn-primary" asp-area="" asp-controller="Home" asp-action="InformationSecurity">ПОДРОБНЕЕ</a>
-                        </div>
-                    </div>
-                </div>
+                @await Html.PartialAsync("ProjectCard", project)
             </div>
         </div>
     }

@@ -1,0 +1,12 @@
+﻿@model AVG.Contracts.ProjectsResponse
+
+<div class="bg-black text-center h-100 project">
+    <div class="d-flex h-100">
+        <div class="project-text w-100 my-auto text-center text-lg-left">
+            <h4 class="text-white">@Model.Title</h4>
+            <p class="mb-0 text-white-50">@Model.BriefDescription</p>
+            <p></p>
+            <a class="btn btn-primary" asp-area="" asp-controller="Home" asp-action="InformationSecurity">ПОДРОБНЕЕ</a>
+        </div>
+    </div>
+</div>
