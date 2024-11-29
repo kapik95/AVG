@@ -3,26 +3,42 @@
 }
 @model IEnumerable<AVG.Contracts.ProjectsResponse>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
-
 @foreach (var project in Model)
 {
-    <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
-        <div class="col-lg-6">
-            <div class="bg-black text-center h-100 project">
-                <div class="d-flex h-100">
-                    <div class="project-text w-100 my-auto text-center text-lg-left">
-                        <h4 class="text-white">@project.Title</h4>
-                        <p class="mb-0 text-white-50">@project.BriefDescription</p>
-                        <p></p>
-                        <a class="btn btn-primary" asp-area="" asp-controller="Home" asp-action="InformationSecurity">ПОДРОБНЕЕ</a>
+    @if(project.Id % 2 == 0)
+    {
+        <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
+            <div class="col-lg-6">
+                <div class="bg-black text-center h-100 project">
+                    <div class="d-flex h-100">
+                        <div class="project-text w-100 my-auto text-center text-lg-left">
+                            <h4 class="text-white">@project.Title</h4>
+                            <p class="mb-0 text-white-50">@project.BriefDescription</p>
+                            <p></p>
+                            <a class="btn btn-primary" asp-area="" asp-controller="Home" asp-action="InformationSecurity">ПОДРОБНЕЕ</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6"><img class="img-fluid" src="@project.ImagePath" alt="..." /></div>
+        </div>
+    }
+    else
+    {
+        <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
+            <div class="col-lg-6"><img class="img-fluid" src="@project.ImagePath" alt="..." /></div>
+            <div class="col-lg-6">
+                <div class="bg-black text-center h-100 project">
+                    <div class="d-flex h-100">
+                        <div class="project-text w-100 my-auto text-center text-lg-left">
+                            <h4 class="text-white">@project.Title</h4>
+                            <p class="mb-0 text-white-50">@project.BriefDescription</p>
+                            <p></p>
+                            <a class="btn btn-primary" asp-area="" asp-controller="Home" asp-action="InformationSecurity">ПОДРОБНЕЕ</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-lg-6"><img class="img-fluid" src="@project.ImagePath" alt="..." /></div>
-    </div>
+    }
 }

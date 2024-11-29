@@ -27,6 +27,7 @@ namespace AVG.Controllers
         {
             var projects = await _context.ProjectsModel
                 .Select (a => new ProjectsResponse(
+                    a.Id,
                     a.Title,
                     a.BriefDescription,
                     a.ImagePath))
