@@ -16,13 +16,6 @@ namespace AVG.Controllers
             _context = context;
         }
 
-        /*public async Task<IActionResult> Index()
-        {
-            var projects = await _context.ProjectsModel.ToListAsync();
-            return View(projects);
-            //return View();
-        }*/
-
         public async Task<IActionResult> Index()
         {
             var projects = await _context.ProjectsModel
@@ -35,9 +28,22 @@ namespace AVG.Controllers
             return View(projects);
         }
 
-        public IActionResult InformationSecurity()
-        { 
-            return View(); 
+        public async Task<IActionResult> Details(int id)
+        {
+            var project = await _context.ProjectsModel.FirstOrDefaultAsync(a => a.Id == id);
+            if (project == null)
+            {
+                return NotFound();
+            }
+            var projectResponse = new ProjectDataResponse
+            (
+                project.Id,
+                project.Title,
+                project.Description,
+                project.ImagePath,
+                project.ExampleScript
+            );
+            return View(projectResponse);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

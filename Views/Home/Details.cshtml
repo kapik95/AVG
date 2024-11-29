@@ -1,0 +1,22 @@
+﻿@model AVG.Contracts.ProjectDataResponse
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<div class="container">
+    <h1>@Model.Title</h1>
+    <div class="project-image">
+        <img src="@Model.ImagePath" alt="Project Screenshot">
+    </div>
+    <p>
+        @Model.Description
+    </p>
+    <h2>Пример исполнения класса:</h2>
+    <pre>
+        @Model.ExampleScript
+    </pre>
+    <div class="github-link">
+        <a href="https://github.com/ваш-репозиторий" target="_blank">Перейти на GitHub</a>
+    </div>
+</div>
+
