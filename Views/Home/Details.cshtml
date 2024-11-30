@@ -1,6 +1,6 @@
 ﻿@model AVG.Contracts.ProjectDataResponse
 @{
-    ViewData["Title"] = Model.Title;
+    ViewData["Title"] = @Model.Title;
 }
 
 <div class="container">
@@ -9,7 +9,7 @@
         <img src="@Model.ImagePath" alt="Project Screenshot">
     </div>
     <p>
-        @Model.Description
+        @Html.Raw(Model.Description)
     </p>
     <h2>Пример исполнения класса:</h2>
     <pre>
