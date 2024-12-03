@@ -6,7 +6,9 @@
         string Title,
         string Description,
         string ImagePath,
-        string ExampleScript
+        string ExampleScript,
+        string Link,
+        string Slug
     );
 }
 

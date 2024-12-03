@@ -23,14 +23,16 @@ namespace AVG.Controllers
                     a.Id,
                     a.Title,
                     a.BriefDescription,
-                    a.ImagePath))
+                    a.ImagePath,
+                    a.Slug))
                 .ToListAsync(); 
             return View(projects);
         }
 
-        public async Task<IActionResult> Details(int id)
+        public async Task<IActionResult> Details(string slug)
         {
-            var project = await _context.ProjectsModel.FirstOrDefaultAsync(a => a.Id == id);
+            slug = slug.ToLower();
+            var project = await _context.ProjectsModel.FirstOrDefaultAsync(a => a.Slug == slug);
             if (project == null)
             {
                 return NotFound();
@@ -41,7 +43,9 @@ namespace AVG.Controllers
                 project.Title,
                 project.Description,
                 project.ImagePath,
-                project.ExampleScript
+                project.ExampleScript,
+                project.Link,
+                project.Slug
             );
             return View(projectResponse);
         }

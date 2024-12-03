@@ -5,6 +5,7 @@
         int Id,
         string Title,
         string BriefDescription,
-        string ImagePath
+        string ImagePath,
+        string Slug
     ); 
 }

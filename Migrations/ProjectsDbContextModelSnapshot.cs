@@ -38,6 +38,14 @@ namespace AVG.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Link")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Slug")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Technologies")
                         .IsRequired()
                         .HasColumnType("TEXT");

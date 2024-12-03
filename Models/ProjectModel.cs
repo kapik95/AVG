@@ -15,6 +15,7 @@ namespace AVG.Models
         public string Technologies { get; set; } = string.Empty;
         public string ExampleScript { get; set; } = string.Empty;
         [Required] public string ImagePath { get; set;} = string.Empty;
-        //public string Link {  get; set;} = string.Empty;
+        public string Link {  get; set;} = string.Empty;
+        public string Slug { get; set; } = string.Empty;
     }
 }

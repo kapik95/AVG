@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AVG.Migrations
 {
     [DbContext(typeof(ProjectsDbContext))]
-    [Migration("20241125115643_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20241203104228_AddColums")]
+    partial class AddColums
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -38,6 +38,14 @@ namespace AVG.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ImagePath")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Link")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Slug")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
