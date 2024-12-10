@@ -11,7 +11,6 @@ html {
 }
 
 body {
-
     margin-bottom: 60px;
     padding-top: 60px;
     color: rgba(255, 255, 255, 0.5) !important;
@@ -22,11 +21,7 @@ header {
     top: 0;
     left: 0;
 }
-.col-lg-6 {
-    flex: 0 0 auto;
-    width: 50%;
-    background-color: black;
-}
+
 .text-white-50 {
     --bs-text-opacity: 1;
     color: rgba(255, 255, 255, 0.5) !important;
@@ -39,22 +34,25 @@ header {
     font-weight: 200;
 }
 
+
 .btn {
-    --bs-btn-padding-x: 0.75rem;
-    --bs-btn-padding-y: 0.375rem;
-    --bs-btn-font-family: 'Varela Round', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --bs-btn-padding-x: 1rem;
+    --bs-btn-padding-y: 0.5rem;
+    --bs-btn-font-family: 'Varela Round', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     --bs-btn-font-size: 1rem;
-    --bs-btn-font-weight: 400;
+    --bs-btn-font-weight: 600;
     --bs-btn-line-height: 1.5;
-    --bs-btn-color: #2a6eb2;
-    --bs-btn-bg: transparent;
-    --bs-btn-border-width: 1px;
-    --bs-btn-border-color: transparent;
-    --bs-btn-border-radius: 0.375rem;
-    --bs-btn-hover-border-color: transparent;
-    --bs-btn-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075);
+    --bs-btn-color: #ffffff; /* Белый цвет текста */
+    --bs-btn-bg: #6db4b5; /* Основной зелёный фон кнопки */
+    --bs-btn-border-width: 2px;
+    --bs-btn-border-color: #6db4b5; /* Граница зелёного цвета */
+    --bs-btn-border-radius: 0.5rem;
+    --bs-btn-hover-bg: #2d8c73; /* Темнее зелёный при наведении */
+    --bs-btn-hover-border-color: #2d8c73; /* Темнее граница при наведении */
+    --bs-btn-hover-color: #ffffff; /* Белый цвет текста при наведении */
+    --bs-btn-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Лёгкая тень */
+    --bs-btn-focus-box-shadow: 0 0 0 0.25rem rgba(58, 179, 151, 0.5); /* Зелёная тень при фокусе */
     --bs-btn-disabled-opacity: 0.65;
-    --bs-btn-focus-box-shadow: 0 0 0 0.25rem rgba(var(--bs-btn-focus-shadow-rgb), .5);
     display: inline-block;
     padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
     font-family: var(--bs-btn-font-family);
@@ -66,14 +64,41 @@ header {
     text-decoration: none;
     vertical-align: middle;
     cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
     user-select: none;
     border: var(--bs-btn-border-width) solid var(--bs-btn-border-color);
     border-radius: var(--bs-btn-border-radius);
     background-color: var(--bs-btn-bg);
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    opacity: 0.7; /* Полупрозрачная кнопка */
+    outline: none; /* Убираем синюю рамку по умолчанию */
+    transition: all 0.3s ease;
+    box-shadow: var(--bs-btn-box-shadow);
 }
+
+    .btn:hover {
+        background-color: var(--bs-btn-hover-bg); /* Тёмно-зелёный при наведении */
+        border-color: var(--bs-btn-hover-border-color);
+        color: var(--bs-btn-hover-color);
+        opacity: 1; /* Полная непрозрачность при наведении */
+        transform: translateY(-2px); /* Лёгкий подъём */
+    }
+
+    .btn:active {
+        background-color: #246a58; /* Очень тёмно-зелёный при нажатии */
+        border-color: #246a58;
+        transform: translateY(0); /* Возврат к исходной позиции */
+        box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.2);
+        opacity: 1; /* Полная непрозрачность при нажатии */
+        outline: none; /* Убираем синюю рамку при активном состоянии */
+    }
+
+    .btn:focus {
+        outline: none; /* Убираем синюю рамку при фокусе */
+        box-shadow: var(--bs-btn-focus-box-shadow); /* Зелёная тень при фокусе */
+        opacity: 1; /* Полная непрозрачность при фокусе */
+    }
+    .btn:focus-visible {
+        outline: none !important;
+    }
 
 .container {
     background: #fff;
@@ -115,21 +140,94 @@ pre {
     text-align: left;
 }
 
-.github-link {
-    display: block;
-    text-align: center;
-    margin-top: 20px;
+.social {
+    display: flex;
+    justify-content: center;
 }
 
-    .github-link a {
-        padding: 10px 20px;
-        background: #007bff;
-        color: #fff;
-        text-decoration: none;
-        border-radius: 4px;
-        font-size: 16px;
+.social-link {
+    background-color: transparent; /* Прозрачный фон для ссылки */
+    border-radius: 50%; /* Круглая форма */
+    padding: 10px; /* Немного пространства вокруг иконки */
+    transition: background-color 0.3s ease; /* Плавный переход */
+}
+
+    .social-link:hover {
+        background-color: #333; /* Черный фон при наведении */
     }
 
-        .github-link a:hover {
-            background: #0056b3;
-        }
+.icon {
+    color: #6db4b5; /* Цвет иконки */
+    transition: color 0.3s ease; /* Плавный переход цвета иконки */
+}
+
+.social-link:hover .icon {
+    color: #fff; /* Цвет иконки меняется на белый при наведении */
+}
+
+
+
+.contact-container {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.contact-card {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 400px; /* Фиксированная ширина */
+    height: 250px; /* Фиксированная высота */
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Равномерное распределение контента */
+}
+
+.contact-card:hover {
+        transform: scale(1.05); /* Лёгкое увеличение при наведении */
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.label {
+    font-family: Comfortaa, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+    font-weight: bold;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #4a4a4a;
+    margin-bottom: 10px;
+}
+
+.line {
+    border: none;
+    border-top: 2px solid #6db4b5;
+    width: 60%; /* Широкая линия */
+    margin: 10px auto;
+}
+
+.contact-link {
+    color: #6db4b5;
+    text-decoration: none;
+    font-size: 16px; /* Увеличенный размер текста */
+}
+
+    .contact-link:hover {
+        text-decoration: underline;
+    }
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column; /* Карточки располагаются друг под другом */
+        gap: 20px; /* Уменьшить отступы между карточками */
+    }
+}
+
+.icon {
+    color: #6db4b5; /* Задаём начальный цвет */
+    transition: transform 0.3s ease, color 0.3s ease; /* Плавный переход */
+}
+
