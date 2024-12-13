@@ -8,6 +8,7 @@ html {
     html {
         font-size: 16px;
     }
+
 }
 
 body {
@@ -20,6 +21,115 @@ header {
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 2;
+}
+
+.bg-black {
+    background-color: #000; /* Черный фон */
+}
+
+.project {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Растягиваем контейнер по высоте */
+}
+
+.d-flex {
+    display: flex;
+    height: 100%; /* Растягиваем по высоте родительского контейнера */
+}
+
+.project-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Центрируем контент по вертикали */
+    align-items: center; /* Центрируем контент по горизонтали */
+    text-align: center;
+    color: white;
+    padding: 20px;
+    height: 100%; /* Растягиваем блок по высоте */
+}
+
+    .project-text h4 {
+        margin-bottom: 10px;
+    }
+
+    .project-text p {
+        margin-bottom: 15px;
+    }
+
+    .project-text .btn {
+        margin-top: 10px;
+    }
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Убедитесь, что контейнер растягивается по высоте */
+}
+
+.image-block,
+.text-block {
+    display: flex;
+    align-items: stretch; /* Растягиваем дочерние элементы по высоте */
+    height: 100%; /* Устанавливаем одинаковую высоту для этих блоков */
+}
+
+.image-block {
+    flex: 1;
+}
+
+    .image-block img {
+        width: 100%;
+        height: 100%; /* Картинка растягивается по высоте родительского контейнера */
+        object-fit: cover; /* Сохраняем пропорции изображения */
+        display: block;
+    }
+
+.text-block {
+    flex: 1;
+    background-color: #f8f9fa; /* Цвет фона для проверки */
+    height: auto; /* Растягиваем блок с текстом по высоте */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Центрируем текст по вертикали */
+    box-sizing: border-box; /* Для правильного расчета высоты */
+}
+
+@media (max-width: 768px) {
+    .project-text {
+        text-align: center;
+        padding: 15px;
+    }
+
+    .row {
+        flex-direction: column; /* Размещаем элементы в колонку */
+    }
+
+    .image-block,
+    .text-block {
+        width: 100%; /* Полная ширина для обоих блоков */
+    }
+
+    .col-lg-6 {
+        flex: 0 0 auto; /* Сбрасываем ширину */
+        max-width: 100%; /* На мобильных: элементы занимают всю ширину */
+    }
+
+        .col-lg-6 img {
+            width: 100%; /* Изображение занимает всю ширину */
+            height: auto; /* Масштабируем пропорционально */
+        }
+
+    .text-block {
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Центруем текст по вертикали */
+        height: auto; /* Высота задается автоматически */
+        box-sizing: border-box; /* Для правильного расчета высоты */
+    }
 }
 
 .text-white-50 {
@@ -223,6 +333,16 @@ pre {
     .contact-container {
         flex-direction: column; /* Карточки располагаются друг под другом */
         gap: 20px; /* Уменьшить отступы между карточками */
+    }
+
+    .contact-card {
+        width: 100%; /* На мобильных карточки занимают всю ширину */
+        max-width: 100%; /* Убедиться, что карточка не выйдет за пределы экрана */
+        height: auto; /* Высота будет адаптироваться под содержимое */
+    }
+
+    .container {
+        padding: 10px; /* Уменьшить отступы в контейнере */
     }
 }
 
